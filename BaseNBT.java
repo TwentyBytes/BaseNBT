@@ -69,90 +69,42 @@ public abstract class BaseNBT {
 
     @NotNull
     public static Object byteBaseSource(byte value) {
-        try {
-            return Reflect.findConstructor(NBT_TAG_BYTE_CLASS, byte.class).newInstance(value);
-        } catch (Throwable throwable) {
-            throwable.printStackTrace();
-        }
-
-        return null;
+        return Reflect.construct(NBT_TAG_BYTE_CLASS, value);
     }
 
     @NotNull
     public static Object shortBaseSource(int value) {
-        try {
-            return Reflect.findConstructor(NBT_TAG_SHORT_CLASS, int.class).newInstance(value);
-        } catch (Throwable throwable) {
-            throwable.printStackTrace();
-        }
-
-        return null;
+        return Reflect.construct(NBT_TAG_SHORT_CLASS, value);
     }
 
     @NotNull
     public static Object intBaseSource(int value) {
-        try {
-            return Reflect.findConstructor(NBT_TAG_INT_CLASS, int.class).newInstance(value);
-        } catch (Throwable throwable) {
-            throwable.printStackTrace();
-        }
-
-        return null;
+        return Reflect.construct(NBT_TAG_INT_CLASS, value);
     }
 
     @NotNull
     public static Object longBaseSource(long value) {
-        try {
-            return Reflect.findConstructor(NBT_TAG_LONG_CLASS, long.class).newInstance(value);
-        } catch (Throwable throwable) {
-            throwable.printStackTrace();
-        }
-
-        return null;
+        return Reflect.construct(NBT_TAG_LONG_CLASS, value);
     }
 
     @NotNull
     public static Object floatBaseSource(float value) {
-        try {
-            return Reflect.findConstructor(NBT_TAG_FLOAT_CLASS, float.class).newInstance(value);
-        } catch (Throwable throwable) {
-            throwable.printStackTrace();
-        }
-
-        return null;
+        return Reflect.construct(NBT_TAG_FLOAT_CLASS, value);
     }
 
     @NotNull
     public static Object doubleBaseSource(double value) {
-        try {
-            return Reflect.findConstructor(NBT_TAG_DOUBLE_CLASS, double.class).newInstance(value);
-        } catch (Throwable throwable) {
-            throwable.printStackTrace();
-        }
-
-        return null;
+        return Reflect.construct(NBT_TAG_DOUBLE_CLASS, value);
     }
 
     @NotNull
     public static Object stringBaseSource(String value) {
-        try {
-            return Reflect.findConstructor(NBT_TAG_STRING_CLASS, String.class).newInstance(value);
-        } catch (Throwable throwable) {
-            throwable.printStackTrace();
-        }
-
-        return null;
+        return Reflect.construct(NBT_TAG_STRING_CLASS, value);
     }
 
     @NotNull
     public static Object nbtTagBaseSource() {
-        try {
-            return Reflect.findConstructor(NBT_TAG_COMPOUND_CLASS).newInstance();
-        } catch (Throwable throwable) {
-            throwable.printStackTrace();
-        }
-
-        return null;
+        return Reflect.construct(NBT_TAG_COMPOUND_CLASS);
     }
 
     @NotNull
