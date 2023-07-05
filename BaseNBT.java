@@ -275,11 +275,11 @@ public abstract class BaseNBT {
     }
 
     public <T> T baseAs(Class<T> clazz) {
-        return as();
+        return (T) getNbtBase();
     }
 
     public <T> T baseAs() {
-        return (T) this;
+        return (T) baseAs();
     }
 
     public class CompoundMap extends HashMap<String, BaseNBT> {
