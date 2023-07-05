@@ -1,4 +1,4 @@
-package ru.reworlds.koito.util;
+package your.pckg;
 
 import org.bukkit.Bukkit;
 import org.bukkit.inventory.ItemStack;
@@ -270,11 +270,17 @@ public abstract class BaseNBT {
         return as();
     }
 
-    @SuppressWarnings("all")
     public <T> T as() {
         return (T) this;
     }
 
+    public <T> T baseAs(Class<T> clazz) {
+        return as();
+    }
+
+    public <T> T baseAs() {
+        return (T) this;
+    }
 
     public class CompoundMap extends HashMap<String, BaseNBT> {
 
@@ -1018,7 +1024,7 @@ public abstract class BaseNBT {
             private final List<Object> baseList;
 
             public LinkedNBTList(List<Object> baseList) {
-                this.baseList = baseList;
+                this.baseList = new ArrayList<>();
 
                 for (Object o : baseList) {
                     add(getBase(o));
@@ -1063,7 +1069,7 @@ public abstract class BaseNBT {
     @SuppressWarnings({"unchecked", "unused"})
     public static class Reflect {
 
-        private static final Map<Class<?>, ru.reworlds.koito.util.Reflect.ClassData<?>> cache = new ConcurrentHashMap<>();
+        private static final Map<Class<?>, Reflect.ClassData<?>> cache = new ConcurrentHashMap<>();
 
         private Reflect() {
         }
@@ -1228,8 +1234,8 @@ public abstract class BaseNBT {
             return get(MethodHandles.Lookup.class, "IMPL_LOOKUP");
         }
 
-        private static <T> ru.reworlds.koito.util.Reflect.ClassData<T> getClass(Class<T> clazz) {
-            return (ru.reworlds.koito.util.Reflect.ClassData<T>) cache.computeIfAbsent(clazz, ru.reworlds.koito.util.Reflect.ClassData::new);
+        private static <T> ClassData<T> getClass(Class<T> clazz) {
+            return (ClassData<T>) cache.computeIfAbsent(clazz, Reflect.ClassData::new);
         }
 
         static class ClassData<K> {
